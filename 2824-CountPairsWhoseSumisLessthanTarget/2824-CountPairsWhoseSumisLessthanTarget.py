@@ -5,10 +5,10 @@ class Solution:
 
         l, r, res = 0, len(nums) - 1, 0
 
-        while l < r:
+        while l <= r:
             if nums[l] + nums[r] < target:
         #[-1,1,1,2,3]
-                res += 1
+                res += l - r
                 l += 1
             else:
                 r -= 1
