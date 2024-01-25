@@ -8,7 +8,7 @@ class Solution:
         while l <= r:
             if nums[l] + nums[r] < target:
         #[-1,1,1,2,3]
-                res += l - r
+                res += l + r
                 l += 1
             else:
                 r -= 1
