@@ -1,15 +1,18 @@
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
-        dp = [0] * len(cost)
+    def validPalindrome(self, s: str) -> bool:
+        if s[::-1] == s: return True
         
-        if len(cost) == 1:
-            return cost[0]
+        l, r = 0, len(s) - 1
         
-        dp[0] = cost[0]
-        dp[1] = cost[1]
-        
-        for i in range(2, len(cost)):
-            dp[i] = min(dp[i-1], dp[i-2]) + cost[i]
+        while l < r:
             
-        return min(dp[len(cost)-2], dp[len(cost)-1])
-[10,15,20]
+            if s[l] != s[r]:
+                sLeft, sRight = s[l + 1: r + 1], s[l: r]
+                return(sLeft[::-1] == sLeft or sRight[::-1] == sRight)
+            
+            l+=1
+            r-=1
+            
+        return True
+        
+"aba"
