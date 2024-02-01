@@ -1,14 +1,17 @@
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
-        post = 1
-        res = [0] * len(nums)
-        for i in range(len(nums)):
-            res[i] = post
-            post *= nums[i]
+    def longestConsecutive(self, nums: List[int]) -> int:
+        nums = set(nums)
+        res = 0
 
-        pre = 1
-        for i in range(len(nums) - 1, -1, -1):
-            res[i] *= pre
-            pre *= nums[i]
+        for i in nums:
+
+            if (i - 1) not in nums:
+                length = 0
+                
+                while (i + length) in nums:
+                    length += 1
+                    res = max(res, length)
         return res
-[1,2,3,4]
+        
+
+[100,4,200,1,3,2]
