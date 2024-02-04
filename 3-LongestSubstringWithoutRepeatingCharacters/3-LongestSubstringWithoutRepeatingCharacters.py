@@ -1,21 +1,19 @@
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        l, res = 0, 0
+    def characterReplacement(self, s: str, k: int) -> int:
+        count = {}
+        res, l, maxFreq = 0, 0, 0
 
         for r in range(len(s)):
-            window = s[l:r + 1]
-            if window.count(s[r]) > 1:
-                l = s.find(s[r], l) + 1
-            else:
-                res = max(res, r - l + 1)
-        
+            count[s[r]] = count.get(s[r], 0) + 1
+            maxFreq = max(maxFreq, count[s[r]])
+            while (r - l + 1) - maxFreq > k:
+                count[s[l]] -= 1
+                l += 1
+
+            res = max(res, r - l + 1)
         return res
             
 
-
-
-            
             
 
-
-"abcabcbb"
+"ABAB"
