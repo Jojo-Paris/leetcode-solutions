@@ -5,7 +5,7 @@ class Solution:
 
         l, r = 0, len(nums) - 1
 
-        while l < r:
+        while l <= r:
 
             mid = int((l + r) // 2)
 
