@@ -7,7 +7,7 @@ class Solution:
 
         while l < r:
 
-            mid = (l + r) // 2
+            mid = int((l + r) // 2)
 
             if nums[mid] == target: return mid
 
