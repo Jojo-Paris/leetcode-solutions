@@ -1,20 +1,17 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
-    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
-
-        def sumOfLeft(root, isLeft):
-            if root is None: return 0
-
-            if root.left is None and root.right is None and isLeft:
-                return root.val
-
-            return sumOfLeft(root.left, True) + sumOfLeft(root.right, False)
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        l, r = 0, len(nums) - 1
+        idx = len(nums) - 1
+        res = [0] * len(nums)
         
-        return sumOfLeft(root, False)
-        
-[3,9,20,null,null,15,7]
+        while l <= r:
+            if abs(nums[l]) > abs(nums[r]):
+                res[idx] = nums[l] ** 2
+                l += 1
+            else:
+                res[idx] = nums[r] ** 2
+                r -= 1
+            idx -= 1
+                
+        return res
+[-4,-1,0,3,10]
