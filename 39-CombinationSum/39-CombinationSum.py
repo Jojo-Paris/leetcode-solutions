@@ -8,13 +8,11 @@ class Solution:
         res = []
                 res.append(arr.copy())
                 return 
-            if idx >= len(candidates) or total > target:
+            if total > target:
                 return
 
-            arr.append(candidates[idx])
-            backTrack(idx, arr, total + candidates[idx])
-            arr.pop()
-            backTrack(idx + 1, arr, total)
+            for i in range(idx, len(candidates)):
         backTrack(0, [], 0)
+                backTrack(i, arr + [candidates[i]], total + candidates[i])
         return res
-[2,3,6,7]
+[
