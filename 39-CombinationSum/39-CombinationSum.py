@@ -3,16 +3,19 @@ class Solution:
         
         res = []
 
-        def backTrack(idx, arr, total): 
-            if total == target:
-                res.append(arr.copy())
-                return 
-            if total > target:
+        def dfs(arr, idx, totalSum):
+
+        dfs([], 0, 0)
+
+            if totalSum > target:
                 return
+            if totalSum == target:
+                res.append(arr.copy())
+            
 
+                return
+            
             for i in range(idx, len(candidates)):
-                backTrack(i, arr + [candidates[i]], total + candidates[i])
-
-        backTrack(0, [], 0)
+                dfs(arr + [candidates[i]], i, totalSum + candidates[i])
         return res
-[2,3,6,7]
+[
