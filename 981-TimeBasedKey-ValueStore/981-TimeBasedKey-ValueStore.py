@@ -9,8 +9,6 @@
                 l = mid + 1
             else:
                 r = mid - 1
-            if val == timestamp: return self.arr[key][mid][0]
-
 
             
             
@@ -25,4 +23,6 @@
         if key not in self.arr:
             self.arr[key] = []
                 temp = self.arr[key][mid][0]
+
+
 [
