@@ -24,5 +24,5 @@
             self.arr[key] = []
                 temp = self.arr[key][mid][0]
 
-
+            if val == timestamp: return self.arr[key][mid][0]
 [
