@@ -13,8 +13,7 @@ class RecentCounter:
 
         while self.requests[0] < t - 3000: 
             self.requests.popleft()
-            print(self.requests)
         return len(self.requests)
-            
+
 # param_1 = obj.ping(t)
 [
