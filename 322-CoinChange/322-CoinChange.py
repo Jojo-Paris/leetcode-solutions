@@ -2,7 +2,6 @@
             if curAmount < 0: return float('inf')
 
             if curAmount == 0: 
-                res[0] = min(i, res[0])
                 return 0
 
             for j in coins: 
@@ -20,5 +19,8 @@
         memo = [-1] * (amount + 1)
         result = dfs(amount, 0, memo)
         return result if result != float('inf') else -1
+        
+        if amount == 0: return 0
+
 
 [
