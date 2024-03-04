@@ -1,26 +1,14 @@
-        def dfs(curAmount, i, memo):
-            if curAmount < 0: return float('inf')
-
-            if curAmount == 0: 
-                return 0
-
-            for j in coins: 
-                minCoins = min(minCoins, 1 + dfs(curAmount - j, i + 1, memo))
-
-
-
-            if memo[curAmount] != -1:
-                return memo[curAmount]
-
-            minCoins = float('inf')
-            memo[curAmount] = minCoins
-
-            return minCoins
-        memo = [-1] * (amount + 1)
-        result = dfs(amount, 0, memo)
-        return result if result != float('inf') else -1
         
-        if amount == 0: return 0
+        dp = [amount + 1] * (amount + 1)
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
 
+        dp[0] = 0
+        dp[1] = 1
 
+        for a in range(1, amount + 1):
+            for coin in coins:
+                a - c >= 0: dp[a] = min(dp[a], 1 + dp[a - c])
+        
+        return dp[amount] if dp[amount] != amount + 1 else -1
 [
