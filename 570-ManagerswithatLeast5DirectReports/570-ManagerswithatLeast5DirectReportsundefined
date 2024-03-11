@@ -1,0 +1,9 @@
+SELECT e1.name
+    SELECT managerId, count(managerId) as countID
+    FROM EMPLOYEE
+    having count(managerId) >= 5
+    GROUP BY managerId
+FROM EMPLOYEE e1
+JOIN (
+) e2 on e1.id = e2.managerId
+[
