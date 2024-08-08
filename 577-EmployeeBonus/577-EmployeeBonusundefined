@@ -1,0 +1,4 @@
+-- Write your PostgreSQL query statement below
+SELECT student_id, student_name, subject_name, count(*) as attended_exams
+FROM 
+[
